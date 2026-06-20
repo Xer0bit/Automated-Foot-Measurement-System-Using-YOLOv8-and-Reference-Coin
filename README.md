@@ -1,103 +1,107 @@
-# Feet Measurement Report Generator
+# Automated Foot Measurement System Using YOLOv8 and Reference Coin | BRP-SizeMeasure
 
-This project calculates foot sizes using a reference coin and generates a PDF report with measurements of detected feet from an image. The report includes marked images and calculated dimensions, providing a detailed analysis of the detected objects.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.7%2B-blue)
+![YOLOv8](https://img.shields.io/badge/YOLO-v8-orange)
 
-## Table of Contents
+A highly accurate automated foot measurement system leveraging YOLOv8 object detection, adaptive thresholding, and semantic segmentation. Uses a reference coin for scale calibration, achieving 0.05 cm measurement accuracy and 10 ms inference time. Validated through scientific research for medical, orthotic, and e-commerce applications.
 
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Example Images](#example-images)
-- [File Structure](#file-structure)
-- [Acknowledgments](#acknowledgments)
-- [License](#license)
+This repository contains the codebase supporting the research paper: **"AUTOMATED FOOT MEASUREMENT USING YOLOv8 AND A REFERENCE COIN."**
+
+## Keywords
+`YOLOv8` `Foot Measurement` `Computer Vision` `Object Detection` `Semantic Segmentation` `E-commerce Virtual Fitting` `Diabetic Foot Screening` `Orthotics` `Reference Coin Calibration` `Python` `OpenCV` `BRP-SizeMeasure`
+
+## Performance & Accuracy
+* **Object Detection Model:** YOLOv8
+* **Mean Average Precision (mAP):** 0.99
+* **Inference Time:** ~10 ms
+* **Measurement Accuracy:** 0.05 cm average error (0.02 cm standard deviation)
+
+## Resources & Publications
+
+* **Research Paper:** [Automated Foot Measurement Using YOLOv8 and a Reference Coin](https://thesesjournal.com/index.php/1/article/view/3058) (Spectrum of Engineering Sciences, Vol. 4 No. 5, 2026)
+* **Dataset:** [Foot Measurement - Feet data](https://www.scidb.cn/en/detail?dataSetId=d318097f975940e2bb9be0ef9e946b7b) (ScienceDB, DOI: 10.57760/sciencedb.28004) - Includes 2,026 labeled foot images.
 
 ## Features
-
-- **Background Removal**: Removes the background from the input image.
-- **Object Detection**: Detects feet and coins using YOLO models.
-- **Feet Measurements**: Calculates the width and height of the detected feet in centimeters.
-- **PDF Report Generation**: Creates a PDF report with marked images and measurements.
-
-## Requirements
-
-- Python 3.7+
-- OpenCV
-- NumPy
-- fpdf
-- matplotlib
-- ultralytics
-- flask
+* **Background Removal:** Eliminates noise from the input image using semantic segmentation.
+* **Object Detection:** Detects the foot and the reference coin using custom-trained YOLOv8 models.
+* **Edge Detection & Measurement:** Applies adaptive thresholding and Canny edge detection to extract physical dimensions in centimeters.
+* **PDF Report Generation:** Compiles marked images and calculated dimensions into a downloadable PDF report.
 
 ## Installation
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/Xer0bit/BRP-SizeMeasure
-    cd BRP-SizeMeasure
-    ```
+1. Clone the repository:
+```bash
+   git clone [https://github.com/Xer0bit/BRP-SizeMeasure](https://github.com/Xer0bit/BRP-SizeMeasure)
+   cd BRP-SizeMeasure
 
-2. **Create a virtual environment** (optional but recommended):
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
+```
 
-3. **Install the required packages**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+2. Create and activate a virtual environment (recommended):
+
+```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+```
+
+3. Install required dependencies:
+
+```bash
+   pip install -r requirements.txt
+
+```
 
 ## Usage
 
-1. **Prepare your YOLO models**:
-    Ensure you have the YOLO models for detecting feet and coins in the `models/` directory:
-    - `models/feet.pt`
-    - `models/coin.pt`
+1. **Prepare Models:** Place the required pre-trained YOLOv8 `.pt` model files into the `models/` directory:
 
-2. **Run the script**:
-    ```python
-    from image_processing import remove_background, detect_objects
-    from pdf_report import generate_pdf_report
+* `models/feet.pt`
+* `models/coin.pt`
 
-    # Example usage
-    original_image_path = 'path/to/original/image.jpg'
-    detection_results = detect_objects(remove_background(original_image_path))
-    output_pdf_path = 'path/to/output/report.pdf'
-    generate_pdf_report(detection_results, output_pdf_path, original_image_path)
-    ```
+2. **Execute System:**
 
-3. **View the generated PDF**:
-    The PDF report will be saved to the path specified in `output_pdf_path`.
+```python
+   from image_processing import remove_background, detect_objects
+   from pdf_report import generate_pdf_report
 
-## Example Images
+   original_image_path = 'path/to/image.jpg'
+   output_pdf_path = 'path/to/report.pdf'
 
-### Input Image
-![Input Image](https://github.com/Xer0bit/BRP-SizeMeasure/blob/main/temp/aed3f5b6-66be-49cb-85b7-8d26701dc2a5/input.png)
+   # Process Image
+   detection_results = detect_objects(remove_background(original_image_path))
+   
+   # Generate Report
+   generate_pdf_report(detection_results, output_pdf_path, original_image_path)
 
-### Output PDF Report (Final Result)
-![Output PDF Report](https://github.com/Xer0bit/BRP-SizeMeasure/blob/main/temp/aed3f5b6-66be-49cb-85b7-8d26701dc2a5/output.png)
+```
 
-## File Structure
+## Academic Citation
 
-- **`models/`**: Directory containing the YOLO model files.
-- **`image_processing.py`**: Script for image loading, background removal, and object detection.
-- **`pdf_report.py`**: Script for generating the PDF report.
-- **`requirements.txt`**: List of required Python packages.
-- **`README.md`**: Project documentation.
-- **`example_usage.py`**: Example script demonstrating how to use the project.
+If you utilize this codebase or dataset in your research, please cite:
 
-## Acknowledgments
+```bibtex
+@article{sameer2026automated,
+  title={AUTOMATED FOOT MEASUREMENT USING YOLOv8 AND A REFERENCE COIN},
+  author={Sameer, Muhammad and Nazir, Filzah and Fatima, Irum and Nadeem, Syeda Rysham},
+  journal={Spectrum of Engineering Sciences},
+  volume={4},
+  number={5},
+  pages={2751--2766},
+  year={2026},
+  url={[https://thesesjournal.com/index.php/1/article/view/3058](https://thesesjournal.com/index.php/1/article/view/3058)}
+}
 
-- [YOLO](https://github.com/ultralytics/yolov5) for the object detection models.
-- [OpenCV](https://opencv.org/) and [NumPy](https://numpy.org/) for image processing.
+```
 
-## Request Model
+## Authors
 
-For using the YOLO models, ensure that you have the appropriate `.pt` files for both feet and coins. You can download the pre-trained models from the [MODELS](https://drive.google.com/file/d/1h-8lsIfJgZgJalnQuRw_cWcRR2zWONqJ/view?usp=sharing).
-
+* Muhammad Sameer
+* Filzah Nazir
+* Irum Fatima
+* Syeda Rysham Nadeem
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
+
