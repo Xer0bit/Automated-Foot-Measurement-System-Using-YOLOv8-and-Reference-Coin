@@ -1,4 +1,4 @@
-# Automated Foot Measurement System Using YOLOv8 and Reference Coin | BRP-SizeMeasure
+# Automated Foot Measurement System Using YOLOv8 and Reference Coin
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.7%2B-blue)
@@ -9,7 +9,7 @@ A highly accurate automated foot measurement system leveraging YOLOv8 object det
 This repository contains the codebase supporting the research paper: **"AUTOMATED FOOT MEASUREMENT USING YOLOv8 AND A REFERENCE COIN."**
 
 ## Keywords
-`YOLOv8` `Foot Measurement` `Computer Vision` `Object Detection` `Semantic Segmentation` `E-commerce Virtual Fitting` `Diabetic Foot Screening` `Orthotics` `Reference Coin Calibration` `Python` `OpenCV` `BRP-SizeMeasure`
+`YOLOv8` `Foot Measurement` `Computer Vision` `Object Detection` `Semantic Segmentation` `E-commerce Virtual Fitting` `Diabetic Foot Screening` `Orthotics` `Reference Coin Calibration` `Python` `OpenCV`
 
 ## Performance & Accuracy
 * **Object Detection Model:** YOLOv8
@@ -32,8 +32,8 @@ This repository contains the codebase supporting the research paper: **"AUTOMATE
 
 1. Clone the repository:
 ```bash
-   git clone [https://github.com/Xer0bit/BRP-SizeMeasure](https://github.com/Xer0bit/BRP-SizeMeasure)
-   cd BRP-SizeMeasure
+   git clone [https://github.com/Xer0bit/Automated-Foot-Measurement-System-Using-YOLOv8-and-Reference-Coin](https://github.com/Xer0bit/Automated-Foot-Measurement-System-Using-YOLOv8-and-Reference-Coin)
+   cd Automated-Foot-Measurement-System-Using-YOLOv8-and-Reference-Coin
 
 ```
 
@@ -104,4 +104,3 @@ If you utilize this codebase or dataset in your research, please cite:
 ## License
 
 Licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
-
